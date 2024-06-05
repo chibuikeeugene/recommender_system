@@ -1,0 +1,11 @@
+
+! ~/.local/bin/kaggle competitions download -c santander-product-recommendation -p /Users/eugene/Personal_Projects/Real_ML_Project/recommender_system/recommender_model_package/recommender_model_package/datasets &&\
+! mkdir  /Users/eugene/Personal_Projects/Real_ML_Project/recommender_system/recommender_model_package/recommender_model_package/datasets/santander-data && \
+chmod +w /Users/eugene/Personal_Projects/Real_ML_Project/recommender_system/recommender_model_package/recommender_model_package/datasets/santander-data && \
+unzip /Users/eugene/Personal_Projects/Real_ML_Project/recommender_system/recommender_model_package/recommender_model_package/datasets/santander-product-recommendation.zip -d /Users/eugene/Personal_Projects/Real_ML_Project/recommender_system/recommender_model_package/recommender_model_package/datasets/santander-data && \
+unzip /Users/eugene/Personal_Projects/Real_ML_Project/recommender_system/recommender_model_package/recommender_model_package/datasets/santander-data/test_ver2.csv.zip -d /Users/eugene/Personal_Projects/Real_ML_Project/recommender_system/recommender_model_package/recommender_model_package/datasets/santander-data && \
+unzip /Users/eugene/Personal_Projects/Real_ML_Project/recommender_system/recommender_model_package/recommender_model_package/datasets/santander-data/train_ver2.csv.zip -d /Users/eugene/Personal_Projects/Real_ML_Project/recommender_system/recommender_model_package/recommender_model_package/datasets/santander-data && \
+unzip /Users/eugene/Personal_Projects/Real_ML_Project/recommender_system/recommender_model_package/recommender_model_package/datasets/santander-data/sample_submission.csv.zip -d /Users/eugene/Personal_Projects/Real_ML_Project/recommender_system/recommender_model_package/recommender_model_package/datasets/santander-data && \
+rm -R /Users/eugene/Personal_Projects/Real_ML_Project/recommender_system/recommender_model_package/recommender_model_package/datasets/santander-data/train_ver2.csv.zip
+rm -R /Users/eugene/Personal_Projects/Real_ML_Project/recommender_system/recommender_model_package/recommender_model_package/datasets/santander-data/sample_submission.csv.zip
+rm -R /Users/eugene/Personal_Projects/Real_ML_Project/recommender_system/recommender_model_package/recommender_model_package/datasets/santander-product-recommendation.zip

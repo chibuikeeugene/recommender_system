@@ -1,0 +1,5 @@
+/.venv
+/recommender_env
+.DS_store
+/dist
+svd_model_v0.1.0.pkl
