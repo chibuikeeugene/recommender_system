@@ -6,16 +6,17 @@ sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 import pandas as pd
 import typing as t
 from loguru import logger
-from config.core import ENCODER_DIR, config
-from data_processing.data_manager import load_encoder, load_model
-from recommender_model_package import __version__ as _version
+from recommender_model_package.recommender_model_package.config.core import ENCODER_DIR, config
+from recommender_model_package.recommender_model_package.data_processing.data_manager import load_encoder, load_model
+from recommender_model_package.recommender_model_package import __version__ as _version
+
 
 # load the label encoder
 service_encoder_file_name = f"{config.apps_config.service_encoder}{_version}.pkl"
 se = load_encoder(file_name=service_encoder_file_name)
 
 # load the model
-model_file_name = f"{config.apps_config.model_file_name}{_version}.pkl"
+model_file_name = f"{config.apps_config.model_file_name}{_version}.bin"
 model = load_model(file_name=model_file_name)
 
 
@@ -47,3 +48,5 @@ def get_recommendation(*, uid: float,
 
     
 
+if __name__ == "__main__":
+    get_recommendation(uid=15890.0, service_range=10)

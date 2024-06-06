@@ -1,7 +1,8 @@
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
-from recommender_model_package.config.core import ENCODER_DIR, config
-from recommender_model_package import __version__ as _version
+from recommender_model_package.recommender_model_package.config.core import ENCODER_DIR, config
+from recommender_model_package.recommender_model_package import __version__ as _version
+
 import pickle
 
 

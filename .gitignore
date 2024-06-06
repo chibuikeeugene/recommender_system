@@ -2,4 +2,5 @@
 /recommender_env
 .DS_store
 /dist
-svd_model_v0.1.0.pkl
+/datasets
+svd_model_v0.1.0.bin

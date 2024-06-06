@@ -10,11 +10,12 @@ from sklearn.preprocessing import LabelEncoder
 
 from tqdm import tqdm
 import numpy as np
-import data_processing.preprocessor as pp
-from recommender_model_package.config.core import config, SANTANDER_DATA_DIR, TRAINED_MODEL_DIR, ENCODER_DIR
-from recommender_model_package import __version__ as _version
-import pickle
+import recommender_model_package.recommender_model_package.data_processing.preprocessor as pp
+from recommender_model_package.recommender_model_package.config.core import config, SANTANDER_DATA_DIR, TRAINED_MODEL_DIR, ENCODER_DIR
+from recommender_model_package.recommender_model_package import __version__ as _version
 
+import pickle
+import joblib
 
 
 def load_dataset(*, filename: str) -> pd.DataFrame:
@@ -100,10 +101,10 @@ def transform_dataset(*, dataset: pd.DataFrame) -> pd.DataFrame:
 def save_model(*, model: t.Any) -> None:
     """ function to save the model"""
     logger.info("Saving the model ...")
-    save_file_name = f"{config.apps_config.model_file_name}{_version}.pkl"
+    save_file_name = f"{config.apps_config.model_file_name}{_version}.bin"
     save_path = TRAINED_MODEL_DIR / save_file_name
     with open(save_path, "wb") as fout:
-        pickle.dump(model, fout)
+        joblib.dump(model, fout, compress=3)
     logger.log(_Logger__message = model, _Logger__level = 2)
 
 
@@ -112,7 +113,7 @@ def load_model(*, file_name: str) -> t.Any:
     logger.info("Loading the model ...")
     load_path = TRAINED_MODEL_DIR / file_name
     with open(load_path, "rb") as fin:
-        model = pickle.load(fin)
+        model = joblib.load(fin)
     logger.log(_Logger__message = model, _Logger__level = 2)
     return model
 
