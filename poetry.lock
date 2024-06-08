@@ -3593,6 +3593,17 @@ docs = ["myst-parser", "pydata-sphinx-theme", "sphinx"]
 test = ["argcomplete (>=3.0.3)", "mypy (>=1.7.0)", "pre-commit", "pytest (>=7.0,<8.2)", "pytest-mock", "pytest-mypy-testing"]
 
 [[package]]
+name = "type-enforced"
+version = "1.5.0"
+description = "A pure python type enforcer for python type annotations"
+optional = false
+python-versions = ">=3.9"
+files = [
+    {file = "type_enforced-1.5.0-py3-none-any.whl", hash = "sha256:3e16c2f9b613cce2c9c3f5a5f6fd1c1d5e9d12a69d74824b8b751f8631a273af"},
+    {file = "type_enforced-1.5.0.tar.gz", hash = "sha256:91b644ebd960f09cd565cd19de80784a6e616f76bd2b26ada6338e87356b7b83"},
+]
+
+[[package]]
 name = "typer"
 version = "0.12.3"
 description = "Typer, build great CLIs. Easy to code. Based on Python type hints."
@@ -4161,4 +4172,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "jaraco.test", "more
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "52675483e5c80e886742bc2d07f6ea20b7bcb78718fc8dc7e223d1cc3369997d"
+content-hash = "0eaa0b9854fa61c2eed132d4f6d6da0babf45b8c12479f71235bb26bce4fe6ac"

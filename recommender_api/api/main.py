@@ -3,31 +3,44 @@
 
 # sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
-from fastapi import FastAPI
+from fastapi import FastAPI, APIRouter, Request
+from fastapi.responses import HTMLResponse
+import typing as t
 from pydantic import BaseModel
 import uvicorn
-from recommender_model_package.recommender_model_package import recommendation as r
+
+from controller import api_router
+from recommender_api import __version__ as _version
 
 
 
 app = FastAPI(
     title="Recommendation Service",
-    description="Recommendation Service",
-    version="0.1.0"
+    description="Recommend services for santander Spanish customer base based on their learned preference",
+    version= _version
 )
 
+root_router = APIRouter()
 
-@app.get("/")
-def read_root():
-    return "Welcome to Santander Recommendation Service"
+@root_router.get("/")
+async def root(request: Request) -> t.Any:
+    """Basic HTML response."""
+    body = (
+            "<html>"
+            "<body style='padding: 10px;'>"
+            "<h1>Welcome to the Recommender API</h1>"
+            "<div>"
+            "Check the docs: <a href='/docs'>here</a>"
+            "</div>"
+            "</body>"
+            "</html>"
+        )
+
+    return HTMLResponse(content=body)
 
 
-@app.get("/recommendations/")
-def get_recommendations(user_id: float, service_range: int):
-    result = r.get_recommendation(
-        uid = user_id, 
-        service_range = service_range)
-    return result
+app.include_router(root_router)
+app.include_router(api_router)
 
 
 if __name__ == "__main__":

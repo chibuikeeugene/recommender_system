@@ -1,0 +1,1 @@
+from .rec_response_schema import RecommendationResult

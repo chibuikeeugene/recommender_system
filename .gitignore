@@ -4,3 +4,5 @@
 /dist
 /datasets
 svd_model_v0.1.0.bin
+__pycache__/ 
+*.pyc
